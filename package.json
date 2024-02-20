@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev .vercel/output/static",
+    "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static"
+  
   },
   "dependencies": {
-    
     "@headlessui/react": "^1.4.2",
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
@@ -46,17 +49,21 @@
     "react-spinners": "^0.11.0",
     "sharp": "^0.32.6",
     "tailwind-scrollbar-hide": "^1.1.7",
-
     "react": "^18",
     "react-dom": "^18",
     "next": "14.0.4"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.9.0",
+    "@cloudflare/workers-types": "^4.20240208.0",
     "@heroicons/react": "v1",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "14.0.4",
+    "eslint-plugin-next-on-pages": "^1.9.0",
+    "vercel": "^33.5.1",
+    "wrangler": "^3.28.3"
   }
 }
